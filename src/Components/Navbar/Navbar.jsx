@@ -8,6 +8,7 @@ const Navbar = (props) => {
     return (
         <div>
             <Searchbar updateSearchFilter={updateSearchFilter}/>
+            <button>Make a new Idea Space</button>
         </div>
     )
 }
