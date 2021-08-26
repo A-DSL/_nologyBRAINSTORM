@@ -11,7 +11,9 @@ import ListPage from './Containers/ListPage/ListPage';
 function App() {
 
   const [ideaSpaces, setIdeaSpaces] = useState(
-    [{spaceid: 999, name: "dummy", description: "dummy"}]
+    [{spaceid: 999, name: "dummy", description: "dummy"},
+    {spaceid: 1000, name: "dummier", description: "dummier"},
+    {spaceid: 1001, name: "dummiest", description: "dummiest"}]
   )
   const [subIdeas, setSubIdeas] = useState(
     [{subid: 998, name: "dummy1", description: "dummy1", spaceid: 998},
@@ -23,10 +25,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <ListPage />
+          <ListPage ideaSpaces={ideaSpaces}/>
         </Route>
         <Route path="/home">
-          <ListPage />        
+          <ListPage ideaSpaces={ideaSpaces}/>        
         </Route>
       </Switch>
     </Router>
