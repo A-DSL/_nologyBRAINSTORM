@@ -16,13 +16,14 @@ function App() {
   //http://localhost:8080/subideas
   //For /ideas:
   // - /{spaceid}: Get idea with the passed spaceid.
-  // - /modify and /create: Used for modification/creation respectively. Both push a RequestBody idea up.
-  // - /delete: Takes a RequestBody idea, finds the one on SQL and deletes it.
+  // - /modify and /create: Used for modification/creation
+  //    respectively. Both push a RequestBody idea up.
+  // - /delete: Takes a RequestBody idea, finds the one on SQL and
+  //    deletes it.
   //For /subideas:
   // - /{spaceid}: Get all subideas with the passed spaceid.
-  // - /create: Same as ideaspace.
+  // - /modify and /create: Same as ideaspace.
   // - /delete: Same as ideaspace.
-  //SUBIDEA PUTMAPPING DOES NOT WORK YET
 
   const [ideaSpaces, setIdeaSpaces] = useState(
     [{spaceid: 999, name: "dummy", description: "dummy"},
@@ -52,6 +53,7 @@ function App() {
   const retrieveSubIdeas = () => {
     return fetch("http://localhost:8080/subideas", {
       method: 'GET',
+      crossDomain: true,
       headers: {
         'Content-Type': 'nology-brainstorm/json',
         'API-Key': 'secret'
@@ -59,11 +61,11 @@ function App() {
     }).then( (subideas) =>
       subideas.json()
     ).then( (jsonsubs) => {
-      setIdeaSpaces(jsonsubs);
+      setSubIdeas(jsonsubs);
       console.log(jsonsubs);   
     })
   }
-
+  
   useEffect(() => {
     retrieveIdeaSpaces();
     retrieveSubIdeas();
@@ -76,7 +78,7 @@ function App() {
           <ListPage ideaSpaces={ideaSpaces}/>
         </Route>
         <Route path="/home">
-          <ListPage ideaSpaces={ideaSpaces}/>        
+          <ListPage ideaSpaces={ideaSpaces}/>    
         </Route>
       </Switch>
     </Router>

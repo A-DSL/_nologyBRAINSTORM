@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
 import ISList from '../ISList/ISList';
+import styles from './ListPage.module.scss';
 //Navbar with searchbar to find Ideas
 //List of all ideas, each with a delete/pagelink button
 //Pop-up for creating new ideas
@@ -22,7 +23,7 @@ const ListPage = (props) => {
     }, [ideaSpaces])
 
     return (
-        <section>
+        <section className={styles.listPage}>
             <Navbar updateSearchFilter={updateSearchFilter}/>
             <ISList ideaSpaces={searchFilter}/>
         </section>

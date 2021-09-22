@@ -1,0 +1,25 @@
+
+//position of both 'overlay' (background setter) and 'modal' (the window itself) need to be fixed; in other words, they will be on the same location and ignore everything else.
+.overlay {
+    //top, left, right and bottom are positional co-ordinate indicators for where the component's edges should be. an alternative to height/width for fixed-position elements.
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    //very important! z-index is what puts all our stuff in front.
+    z-index: 100;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    //top/left in combination with the transform here center the popup. without transform, the top-left corner of the pop-up would be centered instead; translate is take the coordinate and minusing half the element's height and width.
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 100;
+}
