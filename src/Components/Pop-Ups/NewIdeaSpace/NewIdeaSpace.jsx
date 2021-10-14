@@ -7,10 +7,10 @@ const NewIdeaSpace = (props) => {
         <div className={styles.overlay}>
             <div className={styles.modal}>
                 <p>Name:</p>
-                <input type="text"></input>
+                <input type="text" onChange={props.updateNewISName}></input>
                 <p>Description:</p>
-                <input type="text"></input> 
-                <button onClick={props.enableNewISPopUp}>Create</button> 
+                <textarea rows="8" cols="50" onChange={props.updateNewISDesc}></textarea> 
+                <button onClick={props.createNewIS}>Create</button> 
             </div>    
         </div>
     )
